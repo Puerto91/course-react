@@ -20,12 +20,14 @@ const Modal = ({
     if (!modalRef.current) {
       return;
     }
+
     const { current: modal } = modalRef;
 
     if (isOpen) {
       previousActiveElement.current = document.activeElement;
       modal.showModal();
     } else if (previousActiveElement.current) {
+      modal.close();
       previousActiveElement.current.focus();
     }
   }, [isOpen]);
@@ -53,12 +55,7 @@ const Modal = ({
   };
 
   return ReactDOM.createPortal(
-    <dialog
-      className={style()}
-      ref={modalRef}
-      onClick={handleOutsideClick}
-      open={isOpen}
-    >
+    <dialog className={style()} ref={modalRef} onClick={handleOutsideClick}>
       {children}
     </dialog>,
     document.body

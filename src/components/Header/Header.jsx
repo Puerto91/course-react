@@ -12,7 +12,6 @@ const Header = () => {
   const { user, setUser } = useContext(StoreContext);
 
   const handleOnClose = () => setIsModalOpen(false);
-  console.log(handleOnClose);
   const setProperlyLabel = Boolean(user) ? "Wyloguj się" : "Zaloguj Się";
   const handleOnClick = () => {
     if (Boolean(user)) {
