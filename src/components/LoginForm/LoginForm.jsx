@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import bemCssModules from "bem-css-modules";
 import Modal from "../Modal/Modal";
 import { default as LoginFormStyles } from "./LoginForm.module.scss";
@@ -40,6 +40,10 @@ const LoginForm = ({ handleOnClose, isModalOpen }) => {
     }
   };
 
+  useEffect(() => {
+    resetStateOfInput();
+  }, [isModalOpen]);
+
   const validateMessageComponent = validateMessage.length ? (
     <p className={style("validate-message")}>{validateMessage}</p>
   ) : null;
@@ -50,6 +54,7 @@ const LoginForm = ({ handleOnClose, isModalOpen }) => {
       isOpen={isModalOpen}
       shouldBeCloseOnOutsideClick={true}
     >
+      {validateMessageComponent}
       <form className={style()}>
         <div className={style("row")}>
           <label>

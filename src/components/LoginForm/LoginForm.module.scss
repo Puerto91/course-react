@@ -1,14 +1,20 @@
 .login-form{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    padding: 5px;
 
     &__validate-message {
         color: red;
+        margin: 12px 20px 0px 20px;
         }
 
     &__row {
-        margin-top: 10px;
+        margin: 12px 20px 0px 20px;
         display: flex;
         justify-content: space-around;
+
+        button{
+            padding: 2px 15px;
+        }
     }    
 }
