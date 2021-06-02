@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
 import bemCssModule from "bem-css-modules";
 
-import { default as AsideMenuStyle } from "./AsideMenu.module.scss";
 import { StoreContext } from "../../store/StoreProvider";
+import { ADMIN_TYPE } from "../../helpers/constVariable";
 
 import UserMenu from "./subcomponents/UserMenu";
 import AdminMenu from "./subcomponents/AdminMenu";
 
-const style = bemCssModule(AsideMenuStyle);
+import { default as AsideMenuStyle } from "./AsideMenu.module.scss";
 
-const ADMIN_TYPE = 1;
+const style = bemCssModule(AsideMenuStyle);
 
 const AsideMenu = () => {
   const { user } = useContext(StoreContext);
@@ -19,8 +19,10 @@ const AsideMenu = () => {
 
   return (
     <section className={style()}>
-      <UserMenu isUserLogged={Boolean(user)} />
-      {adminMenuComponent}
+      <div className={style("nav-wrapper")}>
+        <UserMenu isUserLogged={Boolean(user)} />
+        {adminMenuComponent}
+      </div>
     </section>
   );
 };
