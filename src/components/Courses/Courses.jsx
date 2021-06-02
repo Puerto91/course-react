@@ -9,10 +9,13 @@ import { default as CoursesStyle } from "./Courses.module.scss";
 const style = bemCssModule(CoursesStyle);
 
 const Courses = () => {
-  const { courses } = useContext(StoreContext);
-  const coursesElements = courses.map((courses) => (
-    <Course key={courses.id} {...courses} />
-  ));
+  const { courses, user } = useContext(StoreContext);
+
+  const coursesElements = courses.map((course) => {
+    const boughtCourses = user?.courses.includes(course.id);
+
+    return <Course isUserContext={boughtCourses} key={course.id} {...course} />;
+  });
   return (
     <section>
       <h2 className={style("title")}>Kursy do kupienia</h2>
