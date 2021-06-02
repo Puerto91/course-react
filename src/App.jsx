@@ -5,6 +5,7 @@ import "./App.scss";
 import StoreProvider from "./store/StoreProvider";
 import Header from "./components/Header/Header";
 import AsideMenu from "./components/AssideMenu/AsideMenu";
+import Content from "./components/Content/Content";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Router>
         <div className="content-wrapper">
           <AsideMenu />
+          <Content />
         </div>
       </Router>
     </StoreProvider>
