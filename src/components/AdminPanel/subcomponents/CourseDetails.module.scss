@@ -1,0 +1,24 @@
+.courses-details {
+    width: 600px;
+    transition: height 0.2s ease;
+    overflow: hidden;
+
+    &[open] {
+        height: 230px;
+    }
+
+    &:not([open]) {
+        height: 30px;
+    }
+
+    &__summary {
+        height: 30px;
+    }
+
+    &__img {
+        // height: 100px;
+        display: block;
+        width: 300px;
+        margin-bottom: 3px;
+    }
+}
